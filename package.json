@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode production",
     "build": "webpack --mode production",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm install --dev && npm run build"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
