@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
-    "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress"
+    "heroku-postbuild": "npm install --dev && npm run build && node express.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
@@ -22,6 +22,8 @@
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
+    "express": "^4.16.4",
+    "path": "^0.12.7",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-hot-loader": "^4.3.11",
