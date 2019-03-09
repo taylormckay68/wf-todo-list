@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode production",
+    "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
-    "heroku-postbuild": "npm install --dev && npm run build"
+    "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
