@@ -9,18 +9,38 @@ class App extends Component{
         super(props);
         this.state = {
             taskModal: false,
+            taskArr: [],
+            category: '',
+            description: '',
+            info: ''
         }
     }
 
     toggleModal = () => this.setState({taskModal: !this.state.taskModal})
 
+    handleChange = (event) => {
+        console.log(event.target.value);
+        this.setState({[event.target.name]: event.target.value});
+      }
+    
+    handleSubmit = (event) => {
+        let {category, info, description, taskArr} = this.state;
+        this.setState({
+            taskArr: [...this.state.taskArr, {category, info, description}],
+            category: '',
+            info: ''
+        })
+        this.toggleModal();
+        event.preventDefault();
+    }
+
     render(){
         let {taskModal} = this.state;
         return(
         <div className="App">
-            {taskModal && <TaskModal taskModal={taskModal} className="task-modal"/>}
+            <TaskModal {...this.state} toggle={this.toggleModal} handleChange={this.handleChange} handleSubmit={this.handleSubmit} className="task-modal"/>
             <Navbar className="navbar" toggle={this.toggleModal}/>
-            {/* <Header> Hello, World! </Header> */}
+            {JSON.stringify(this.state.taskArr)}
         </div>
         );
     }
