@@ -16,7 +16,7 @@ class TaskModal extends Component{
             <ModalWrapper taskModal={this.props.taskModal} className="modal-wrapper">
                 <form onSubmit={this.props.handleSubmit}>
                     <label>
-                    Category:
+                    Catgory:
                         <select value={this.props.category} name="category" onChange={(e) => this.props.handleChange(e)}>
                             <option defaultValue="" disabled hidden></option>
                             {this.state.taskCategories.map((e, i) =>{

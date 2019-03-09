@@ -4,9 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
+    "start": "webpack -p && node index.js",
+    "go": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
-    "heroku-postbuild": "npm install --dev && npm run build && node express.js"
+    "heroku-postbuild": "webpack -p"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
